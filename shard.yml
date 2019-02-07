@@ -1,0 +1,21 @@
+name: tornade
+version: 0.1.0
+
+authors:
+  - Thooams <thomas@hummel.link>
+
+targets:
+  tornade:
+    main: src/tornade.cr
+
+crystal: 0.27.2
+
+license: MIT
+
+dependencies:
+  soundfile:
+    github: mjago/soundfile
+  asound:
+    github: TamasSzekeres/asound-cr
+    branch: master
+
