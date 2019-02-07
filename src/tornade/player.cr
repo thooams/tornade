@@ -5,22 +5,23 @@ module Tornade
   include ALSA
   class Player
 
-    def initialize(@file_name : String)
-      @file_name = file_name
-      @volume    = Volume.new
+    property playlist
+
+    def initialize(playlist)
+      @playlist = playlist
+      @volume   = Volume.new
     end
 
     def play
-      song = @playlist.current
-      SFile.open(song.path, :read)
+      SFile.open(playlist.current.path, :read)
     end
 
     def next
-      @playlist.next
+      playlist.next
     end
 
     def prev
-      @playlist.prev
+      playlist.prev
     end
 
     def stop
