@@ -13,6 +13,20 @@ describe "Tornade::Playlist" do
     playlist.songs.first.is_a?(Tornade::Song).should be_true
   end
 
+  it "#remove by song" do
+    playlist = Tornade::Playlist.new
+    playlist.add test_wav_path
+    playlist.remove playlist.songs.first
+    playlist.songs.size.should eq 0
+  end
+
+  it "#remove by song" do
+    playlist = Tornade::Playlist.new
+    playlist.add test_wav_path
+    playlist.remove 0
+    playlist.songs.size.should eq 0
+  end
+
   it "#current" do
     playlist = Tornade::Playlist.new
     playlist.add test_wav_path
@@ -27,6 +41,21 @@ describe "Tornade::Playlist" do
     playlist.current.should eq playlist.songs.first
     playlist.next
     playlist.current.should eq playlist.songs.last
+  end
+
+  it "#prev" do
+    playlist = Tornade::Playlist.new
+    playlist.add test_wav_path
+    playlist.add test_wav_path2
+    playlist.select(1)
+    playlist.current.should eq playlist.songs.last
+    playlist.prev
+    playlist.current.should eq playlist.songs.first
+  end
+
+  it "#empty?" do
+    playlist = Tornade::Playlist.new
+    playlist.empty?.should be_true
   end
 
 end
