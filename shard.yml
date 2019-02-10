@@ -15,7 +15,8 @@ license: MIT
 dependencies:
   soundfile:
     github: mjago/soundfile
-  asound:
-    github: TamasSzekeres/asound-cr
     branch: master
+  # asound:
+  #   github: TamasSzekeres/asound-cr
+  #   branch: master
 

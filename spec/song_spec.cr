@@ -9,10 +9,4 @@ describe "Tornade::Song" do
     song.path.should eq "spec/data/wave.wav"
   end
 
-  it "#played!" do
-    song = Tornade::Song.new(test_wav)
-    song.played!
-    song.played.should be_true
-  end
-
 end
